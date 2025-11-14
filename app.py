@@ -24,19 +24,14 @@ def chat(message, history):
     """
     Process chat messages and maintain conversation history
     """
-    # Convert Gradio history format to OpenAI format
     messages = [{"role": "system", "content": SYSTEM_PROMPT}]
-    
-    for human, assistant in history:
-        messages.append({"role": "user", "content": human})
-        messages.append({"role": "assistant", "content": assistant})
-    
+    messages.extend(history)
     messages.append({"role": "user", "content": message})
     
     try:
         # Call Gemini API
         response = client.chat.completions.create(
-            model=os.getenv("MODEL_NAME", "gemini-1.5-flash"),
+            model=os.getenv("MODEL_NAME", "gemini-2.5-flash"),
             messages=messages,
             temperature=0.3,  # Lower temperature for more consistent security responses
             max_tokens=500
