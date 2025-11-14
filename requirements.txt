@@ -1,3 +1,4 @@
 gradio
 python-dotenv
 openai
+huggingface_hub
