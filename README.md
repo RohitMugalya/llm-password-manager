@@ -2,7 +2,7 @@
 title: LLM Password Manager Experiment
 emoji: 🔐
 colorFrom: red
-colorTo: orange
+colorTo: blue
 sdk: gradio
 sdk_version: 4.44.0
 app_file: app.py
